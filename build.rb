@@ -162,6 +162,20 @@ const textFieldExpression = [
   match3
 ]
 
+const fillExtrusionHeight = [
+  'match',
+  [
+    'get',
+    'iso2cd'
+  ]
+]
+for (let iso2cd in dailyData) {
+  fillExtrusionHeight.push([iso2cd])
+  fillExtrusionHeight.push(dailyData[iso2cd][TYPE] * 100)
+}
+fillExtrusionHeight.push(0)
+console.log(fillExtrusionHeight)
+
 map.on('load', () => {
   map.getSource('v').attribution += 
     ` | number of ${TYPE} on ${DATE} from WHO`
@@ -200,6 +214,17 @@ map.on('load', () => {
       ]
     ]
   )
+  map.addLayer({
+    id: 'bnda-extrusion',
+    source: 'v',
+    'source-layer': 'bnda',
+    type: 'fill-extrusion',
+    paint: {
+      'fill-extrusion-height': fillExtrusionHeight,
+      'fill-extrusion-color': fillExpression,
+      'fill-extrusion-opacity': 0.2
+    } 
+  })
 })
 </script>
 </body>
