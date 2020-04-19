@@ -10,5 +10,5 @@ rake host
 ```
 
 # information source
-I downloaded the CSV data via 'Download Map Data' of https://who.sprinklr.com/ to 'src'.
+I downloaded the CSV data via 'Download Map Data' of https://who.sprinklr.com/ to `src`.
 
