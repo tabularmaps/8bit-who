@@ -5,6 +5,7 @@
 ```zsh
 git clone https://github.com/tabularmaps/8bit-who
 cd 8bit-who
+rake build
 rake host
 ```
 
